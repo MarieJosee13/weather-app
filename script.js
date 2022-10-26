@@ -26,7 +26,7 @@ let date = document.querySelector("#present-day");
 let now = new Date();
 date.innerHTML = formatDate(now);
 
-//API for searchCity engine
+//API searchCity engine
 
 function showTemperature(response) {
   console.log(response.data);
