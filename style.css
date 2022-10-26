@@ -1,0 +1,99 @@
+h1,
+h2,
+h3 {
+  text-align: center;
+}
+label {
+  font-size: 12px;
+}
+input {
+  font-size: 14px;
+}
+
+h1 {
+  font-size: 35px;
+  color: rgba(0, 0, 0, 0.692);
+}
+h2 {
+  font-size: 30px;
+  font-weight: 300;
+}
+h3 {
+  font-size: 18px;
+  font-weight: 300;
+}
+h4 {
+  font-size: 16px;
+}
+h5 {
+  font-size: 25px;
+}
+.btn {
+  border: 1px solid rgba(0, 0, 0, 0.534);
+  font-size: 11px;
+}
+.location-btn {
+  border: 1px solid rgba(0, 0, 0, 0.534);
+  font-size: 12px;
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 5px;
+  padding: 6px 7px;
+  display: inline-block;
+  margin-left: 310px;
+}
+.geo-btn:hover {
+  border: 1px solid #fff;
+}
+.card-body {
+  border: 3px solid #52b8f3;
+  width: 700px;
+  background-color: #f7f9fd;
+  font-family: "Raleway", sans-serif;
+}
+.cDegree,
+.fDegree {
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 900;
+  color: rgba(56, 56, 56, 0.836);
+}
+.bar {
+  font-size: 18px;
+}
+.card-city {
+  border: 3px solid #43aaf7;
+  background-color: #dde8f6;
+  width: 550px;
+  display: block;
+  margin: 0 auto;
+}
+.card-range {
+  background-color: #dff0f2;
+  border: 3px solid #81cfca;
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 35px;
+  padding: 50px 20px 10px 20px;
+  width: 650px;
+  display: block;
+}
+.current-day {
+  font-size: 12px;
+  padding: 5px 0 0 5px;
+}
+.high-low {
+  font-size: 14px;
+}
+.low-city {
+  text-align: center;
+  padding: 10px 0 30px 0;
+  margin: 20px 20px 20px 20px;
+}
+.percipitation {
+  font-size: 10px;
+}
+.five-day {
+  position: relative;
+  top: 20px;
+  left: 28px;
+}

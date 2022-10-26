@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>WeatherApp</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="C:\Users\lilmi\OneDrive\Documents\Coding\WeatherApp\style\style.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="card-body">
+        <form id="form-city">
+          <label for="city">Search City:</label>
+          <br />
+          <input type="text" placeholder="Enter City" id="enter-city" />
+          <input type="submit" value="Go" class="btn" id="search-btn" />
+          <input
+            type="submit"
+            value="Current Location"
+            class="location-btn"
+            id="geo-btn"
+          />
+        </form>
+        <h1 id="current-city"></h1>
+
+        <div class="card-city">
+          <p class="current-day">
+            <span id="present-day">Tuesday 14:19</span>
+          </p>
+
+          <h2>
+            Currently <span class="nowTemperature" id="presentTemp"> </span
+            ><a href="#" class="cDegree" id="cTemp"> °C </a
+            ><span class="bar">|</span>
+            <a href="#" class="fDegree" id="fTemp">°F </a><br />
+            ☀️
+          </h2>
+          <h3>High: <span id="high">21</span>°C</h3>
+          <br />
+          <h3>Low: <span id="low">11</span>°C</h3>
+
+          <div class="low-city">
+            <div class="row">
+              <div class="col-4" id="sunrise">
+                🌅 <br />
+                sunrise: 7:13am
+              </div>
+              <div class="col-4">
+                wind: <span id="wind"></span> km
+                <br />
+                humidity: <span id="humid"></span> %
+              </div>
+              <div class="col-4" id="sunset">
+                🌇
+                <br />
+                sunset: 7:06pm
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="five-day">🗓️ 5 - Day Forecast;</p>
+
+        <div class="card-range">
+          <div class="row">
+            <div class="col">
+              <h4>Tomorrow</h4>
+              <p class="percipitation">
+                Light rain
+                <br />
+                42% 💧
+              </p>
+              <h5>🌧️</h5>
+              <p class="high-low">
+                High 19°C
+                <br />
+                Low 12°C
+              </p>
+            </div>
+            <div class="col">
+              <h4>Thursday</h4>
+              <p class="percipitation">
+                Patially Sunny
+                <br />
+                5% 💧
+              </p>
+              <h5>⛅</h5>
+              <p class="high-low">
+                High 20°C
+                <br />
+                Low 12°C
+              </p>
+            </div>
+
+            <div class="col">
+              <h4>Friday</h4>
+              <p class="percipitation">
+                Mostly Sunny
+                <br />
+                1% 💧
+              </p>
+              <h5>🌤️</h5>
+              <p class="high-low">
+                High 22°C
+                <br />
+                Low 13°C
+              </p>
+            </div>
+            <div class="col">
+              <h4>Saturday</h4>
+              <p class="percipitation">
+                Mostly Sunny
+                <br />
+                2% 💧
+              </p>
+              <h5>⛅</h5>
+              <p class="high-low">
+                High 24°C
+                <br />
+                Low 16°C
+              </p>
+            </div>
+            <div class="col">
+              <h4>Sunday</h4>
+              <p class="percipitation">
+                Sunny
+                <br />
+                2% 💧
+              </p>
+              <h5>☀️</h5>
+              <p class="high-low">
+                High 25°C
+                <br />
+                Low 16°C
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="C:\Users\lilmi\OneDrive\Documents\Coding\WeatherApp\script\scriptWeather.js"></script>
+  </body>
+</html>
