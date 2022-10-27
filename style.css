@@ -98,7 +98,8 @@ h5 {
   left: 28px;
 }
 .app-creator {
-  padding-left: 120px;
+  padding-left: 250px;
+  max-width: 600px;
   font-size: 15px;
   font-family: "Courier New", Courier, monospace;
 }
