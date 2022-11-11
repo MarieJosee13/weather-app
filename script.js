@@ -8,6 +8,7 @@ function formatDate(date) {
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
+
   let dayIndex = date.getDay();
   let days = [
     "Sunday",
@@ -19,19 +20,17 @@ function formatDate(date) {
     "Saturday",
   ];
   let day = days[dayIndex];
-  return `${day} ${hours}:${minutes}`;
+  if (hours >= 12) {
+    return `${day} ${hours}:${minutes} pm`;
+  } else {
+    return `${day} ${hours}:${minutes} am`;
+  }
 }
-
-let date = document.querySelector("#present-day");
-let now = new Date();
-date.innerHTML = formatDate(now);
-
-//API searchCity engine
-
+//API for searchCity engine
 function showTemperature(response) {
   console.log(response.data);
   document.querySelector("#current-city").innerHTML = response.data.name;
-  document.querySelector("#presentTemp").innerHTML = Math.round(
+  document.querySelector("#temperature").innerHTML = Math.round(
     response.data.main.temp
   );
   document.querySelector("#high").innerHTML = Math.round(
@@ -46,6 +45,12 @@ function showTemperature(response) {
   document.querySelector("#humid").innerHTML = Math.round(
     response.data.main.humidity
   );
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 function searchCity(city) {
   let apiKey = "5e910c08188e49716f20c4b9bf7bd81f";
@@ -58,9 +63,6 @@ function handleSubmit(event) {
   let city = document.querySelector("#enter-city").value;
   searchCity(city);
 }
-let form = document.querySelector("#form-city");
-form.addEventListener("submit", handleSubmit);
-searchCity("Vancouver");
 
 //Geo Location button
 function searchPosition(position) {
@@ -74,6 +76,38 @@ function CurrentPosition(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(searchPosition);
 }
+// Celsius to Fharenheit conversion
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  celsiusLink.classList.add("cDegree");
+  fahrenheitLink.classList.remove("fDegree");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+function displayFarhenheitTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  celsiusLink.classList.remove("cDegree");
+  fahrenheitLink.classList.add("fDegree");
+  let fahrenheitTemperature = Math.round((celsiusTemperature * 9) / 5 + 32);
+  temperatureElement.innerHTML = fahrenheitTemperature;
+}
+
+let date = document.querySelector("#present-day");
+let now = new Date();
+date.innerHTML = formatDate(now);
 
 let button = document.querySelector("#geo-btn");
 button.addEventListener("click", CurrentPosition);
+
+let celsisusTemperature = null;
+
+let celsiusLink = document.querySelector("#c-unit");
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
+
+let fahrenheitLink = document.querySelector("#f-unit");
+fahrenheitLink.addEventListener("click", displayFarhenheitTemperature);
+
+let form = document.querySelector("#form-city");
+form.addEventListener("submit", handleSubmit);
+searchCity("Vancouver");
