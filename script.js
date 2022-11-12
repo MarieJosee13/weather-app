@@ -92,7 +92,39 @@ function displayFarhenheitTemperature(event) {
   let fahrenheitTemperature = Math.round((celsiusTemperature * 9) / 5 + 32);
   temperatureElement.innerHTML = fahrenheitTemperature;
 }
+function displayForecast() {
+  let forecastElement = document.querySelector("#five-weather-forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `  
+            <div class="col-2">
+              <h4>${day}</h4>
+              <p class="percipitation">
+                Light rain
+                <br />
+                42% 💧
+              </p>
+              <img
+                src="http://openweathermap.org/img/wn/03d@2x.png"
+                alt=""
+                width="45"
+              />
+              <p class="high-low">
+                High 19°C
+                <br />
+                Low 12°C
+              </p>
+            </div>
+          
+            `;
+  });
 
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
 let date = document.querySelector("#present-day");
 let now = new Date();
 date.innerHTML = formatDate(now);
@@ -111,3 +143,5 @@ fahrenheitLink.addEventListener("click", displayFarhenheitTemperature);
 let form = document.querySelector("#form-city");
 form.addEventListener("submit", handleSubmit);
 searchCity("Vancouver");
+
+displayForecast();

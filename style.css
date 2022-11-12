@@ -72,11 +72,9 @@ a {
   background-color: #dff0f2;
   border: 3px solid #81cfca;
   text-align: center;
-  margin: 0 auto;
   margin-bottom: 35px;
   padding: 50px 20px 10px 20px;
   width: 650px;
-  display: block;
 }
 .current-day {
   font-size: 12px;
@@ -97,6 +95,13 @@ a {
   position: relative;
   top: 20px;
   left: 28px;
+}
+.five-dar-forecast {
+  text-align: center;
+  position: relative;
+
+  display: block;
+  margin: 0 auto;
 }
 .app-creator {
   margin-left: 70px;
