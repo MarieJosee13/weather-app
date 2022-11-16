@@ -1,6 +1,15 @@
 //real date for day & time
 function formatDate(date) {
+  let backgroundColor = document.querySelector("#card-body");
   let hours = date.getHours();
+  if (((hours = 12), 13, 14, 15, 16, 17)) {
+    backgroundColor.style.background =
+      "linear-gradient(to top, #fff1eb 0%, #ace0f9 100%)";
+  }
+  if (hours >= 18) {
+    backgroundColor.style.background =
+      "linear-gradient(to top, #9890e3 0%, #b1f4cf 100%)";
+  }
   if (hours < 10) {
     hours = `0${hours}`;
   }

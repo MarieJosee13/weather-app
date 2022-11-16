@@ -5,14 +5,17 @@ h3 {
 }
 label {
   font-size: 12px;
+  position: relative;
+  left: 5px;
 }
 input {
   font-size: 14px;
 }
 
 h1 {
-  font-size: 35px;
-  color: rgba(0, 0, 0, 0.692);
+  font-size: 38px;
+  color: #205279;
+  font-weight: 600;
 }
 h2 {
   font-size: 30px;
@@ -42,13 +45,19 @@ h5 {
   display: inline-block;
   margin-left: 310px;
 }
-.geo-btn:hover {
-  border: 1px solid #fff;
+.location-btn:hover {
+  border: 1px solid rgba(255, 255, 255, 0);
 }
 .card-body {
-  border: 3px solid #52b8f3;
+  border: 3px solid #52b8f3d2;
+  border-radius: 15px;
   width: 700px;
-  background-color: #f7f9fd;
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgb(253, 239, 132) 0%,
+    rgb(247, 198, 169) 54.2%,
+    rgb(21, 186, 196) 100.3%
+  );
   font-family: "Raleway", sans-serif;
 }
 .cDegree {
@@ -61,17 +70,17 @@ h5 {
 }
 .card-city {
   border: 3px solid #43aaf7;
-  background-color: #dde8f6;
+  background-color: #dde8f6c4;
   width: 550px;
   display: block;
   margin: 0 auto;
 }
 .card-range {
-  background-color: #dff0f2;
-  border: 3px solid #81cfca;
+  background-color: #dff0f2be;
+  border: 3px solid #81cfcaad;
   text-align: center;
-  margin-bottom: 35px;
-  padding: 50px 20px 10px 20px;
+  margin: 20px 20px;
+  padding: 50px 20px 10px 85px;
   width: 650px;
 }
 .current-day {
@@ -94,13 +103,7 @@ h5 {
   top: 20px;
   left: 28px;
 }
-.five-dar-forecast {
-  text-align: center;
-  position: relative;
 
-  display: block;
-  margin: 0 auto;
-}
 .app-creator {
   margin-left: 70px;
   padding-left: 300px;
