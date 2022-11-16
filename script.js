@@ -28,7 +28,6 @@ function formatDate(date) {
 }
 //API for searchCity engine
 function showTemperature(response) {
-  console.log(response.data);
   document.querySelector("#current-city").innerHTML = response.data.name;
   document.querySelector("#temperature").innerHTML = Math.round(
     response.data.main.temp
@@ -77,22 +76,7 @@ function CurrentPosition(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(searchPosition);
 }
-// Celsius to Fharenheit conversion
-function displayCelsiusTemperature(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-  celsiusLink.classList.add("cDegree");
-  fahrenheitLink.classList.remove("fDegree");
-  temperatureElement.innerHTML = Math.round(celsiusTemperature);
-}
-function displayFarhenheitTemperature(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-  celsiusLink.classList.remove("cDegree");
-  fahrenheitLink.classList.add("fDegree");
-  let fahrenheitTemperature = Math.round((celsiusTemperature * 9) / 5 + 32);
-  temperatureElement.innerHTML = fahrenheitTemperature;
-}
+
 function displayForecast() {
   let forecastElement = document.querySelector("#five-weather-forecast");
   let forecastHTML = `<div class="row">`;
@@ -132,14 +116,6 @@ date.innerHTML = formatDate(now);
 
 let button = document.querySelector("#geo-btn");
 button.addEventListener("click", CurrentPosition);
-
-let celsiusTemperature = null;
-
-let celsiusLink = document.querySelector("#c-unit");
-celsiusLink.addEventListener("click", displayCelsiusTemperature);
-
-let fahrenheitLink = document.querySelector("#f-unit");
-fahrenheitLink.addEventListener("click", displayFarhenheitTemperature);
 
 let form = document.querySelector("#form-city");
 form.addEventListener("submit", handleSubmit);
