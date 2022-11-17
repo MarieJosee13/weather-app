@@ -114,17 +114,19 @@ h5 {
   color: #7491a7;
 }
 .five-day {
+  color: #205279;
   left: 28px;
   position: relative;
   top: 20px;
 }
 .app-creator {
   color: #205279;
-  font-size: 15px;
+  display: block;
+  font-size: 13px;
   font-family: "Courier New", Courier, monospace;
-  margin-left: 70px;
-  padding-left: 300px;
-  text-align: start;
+  margin: 0 auto;
+  padding-bottom: 10px;
+  padding-left: 45px;
 }
 .creator-link {
   color: #205279;
