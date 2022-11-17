@@ -3,14 +3,8 @@ function formatDate(timestamp) {
   let date = new Date(timestamp);
   let backgroundColor = document.querySelector("#card-body");
   let hours = date.getHours();
-  if (hours < 12) {
-    backgroundColor.style.background = "";
-  } else if (hours > 18) {
-    alert("good afternoon");
-    backgroundColor.style.background =
-      "linear-gradient(to top, #fff1eb 0%, #ace0f9 100%)";
-  } else {
-    alert("good Night");
+
+  if (hours > 18) {
     backgroundColor.style.background =
       "linear-gradient(to top, #9890e3 0%, #b1f4cf 100%)";
   }
