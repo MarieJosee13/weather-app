@@ -18,7 +18,7 @@ h1 {
   font-weight: 600;
 }
 h2 {
-  font-size: 30px;
+  font-size: 31px;
   font-weight: 300;
   color: rgba(0, 0, 0, 0.692);
 }
@@ -69,11 +69,14 @@ h5 {
   top: -10px;
 }
 .card-city {
-  border: 3px solid #43aaf7;
-  background-color: #dde8f6c4;
+  border: 3px solid #205279c2;
+  background-color: #dde8f6a8;
   width: 550px;
   display: block;
   margin: 0 auto;
+}
+.icon {
+  width: 125px;
 }
 .card-range {
   background-color: #dff0f2be;
@@ -87,7 +90,12 @@ h5 {
   font-size: 12px;
   padding: 5px 0 0 5px;
 }
-.high-low {
+.description {
+  font-size: 14px;
+  color: #205279c7;
+}
+.five-high,
+.five-low {
   font-size: 14px;
 }
 .low-city {

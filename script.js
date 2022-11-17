@@ -1,5 +1,6 @@
 //real date for day & time
-function formatDate(date) {
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
   let backgroundColor = document.querySelector("#card-body");
   let hours = date.getHours();
   if (((hours = 12), 13, 14, 15, 16, 17)) {
@@ -17,8 +18,6 @@ function formatDate(date) {
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
-
-  let dayIndex = date.getDay();
   let days = [
     "Sunday",
     "Monday",
@@ -28,19 +27,22 @@ function formatDate(date) {
     "Friday",
     "Saturday",
   ];
-  let day = days[dayIndex];
+  let day = days[date.getDay()];
   if (hours >= 12) {
     return `${day} ${hours}:${minutes} pm`;
   } else {
     return `${day} ${hours}:${minutes} am`;
   }
 }
+
 //API for searchCity engine
 function showTemperature(response) {
   document.querySelector("#current-city").innerHTML = response.data.name;
   document.querySelector("#temperature").innerHTML = Math.round(
     response.data.main.temp
   );
+  document.querySelector("#description").innerHTML =
+    response.data.weather[0].description;
   document.querySelector("#high").innerHTML = Math.round(
     response.data.main.temp_max
   );
@@ -59,7 +61,6 @@ function showTemperature(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
-  celsiusTemperature = response.data.main.temp;
 }
 function searchCity(city) {
   let apiKey = "5e910c08188e49716f20c4b9bf7bd81f";
@@ -85,39 +86,49 @@ function CurrentPosition(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(searchPosition);
 }
-
-function displayForecast() {
+//getting the five-day range forecast
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tues", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
+function displayForecast(response) {
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#five-weather-forecast");
   let forecastHTML = `<div class="row">`;
-  let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `  
+
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `  
             <div class="col-2">
-              <h4>${day}</h4>
-              <p class="percipitation">
-                Light rain
-                <br />
-                42% 💧
-              </p>
+              <h4>${formatDay(forecastDay.dt)}</h4>
               <img
-                src="http://openweathermap.org/img/wn/03d@2x.png"
+                src="http://openweathermap.org/img/wn/${
+                  forecastDay.weather[0].icon
+                }@2x.png"
                 alt=""
-                width="45"
+                width="42"
               />
-              <p class="high-low">
-                High 19°C
-                <br />
-                Low 12°C
-              </p>
-            </div>
-          
-            `;
+              <div class="five-high">
+                High ${Math.round(forecastDay.temp.max)}°
+                </div>
+                <span class="five-low">
+                Low ${Math.round(forecastDay.temp.min)}°
+              </span>
+            </div>`;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
+}
+function getForecast(coordinates) {
+  let apiKey = "04bde8cc7f569f7c5603cdbc6deb89a3";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
 }
 let date = document.querySelector("#present-day");
 let now = new Date();
@@ -129,5 +140,3 @@ button.addEventListener("click", CurrentPosition);
 let form = document.querySelector("#form-city");
 form.addEventListener("submit", handleSubmit);
 searchCity("Vancouver");
-
-displayForecast();
