@@ -27,7 +27,8 @@ h3 {
   font-weight: 300;
 }
 h4 {
-  font-size: 16px;
+  color: #205279;
+  font-size: 17px;
 }
 h5 {
   font-size: 25px;
@@ -98,7 +99,7 @@ h5 {
   background-color: #dff0f2be;
   border: 3px solid #81cfcaad;
   margin: 20px 20px;
-  padding: 50px 20px 10px 85px;
+  padding: 40px 20px 40px 85px;
   text-align: center;
   width: 650px;
 }
@@ -106,15 +107,28 @@ h5 {
 .five-low {
   font-size: 14px;
 }
+.five-high {
+  color: #205279;
+}
+.five-low {
+  color: #7491a7;
+}
 .five-day {
   left: 28px;
   position: relative;
   top: 20px;
 }
 .app-creator {
+  color: #205279;
   font-size: 15px;
   font-family: "Courier New", Courier, monospace;
   margin-left: 70px;
   padding-left: 300px;
   text-align: start;
+}
+.creator-link {
+  color: #205279;
+}
+.creator-link:hover {
+  color: #4bbdbd;
 }

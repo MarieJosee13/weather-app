@@ -3,11 +3,14 @@ function formatDate(timestamp) {
   let date = new Date(timestamp);
   let backgroundColor = document.querySelector("#card-body");
   let hours = date.getHours();
-  if (((hours = 12), 13, 14, 15, 16, 17)) {
+  if (hours < 12) {
+    backgroundColor.style.background = "";
+  } else if (hours > 18) {
+    alert("good afternoon");
     backgroundColor.style.background =
       "linear-gradient(to top, #fff1eb 0%, #ace0f9 100%)";
-  }
-  if (hours >= 18) {
+  } else {
+    alert("good Night");
     backgroundColor.style.background =
       "linear-gradient(to top, #9890e3 0%, #b1f4cf 100%)";
   }
@@ -18,6 +21,7 @@ function formatDate(timestamp) {
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
+  let dayIndex = date.getDay();
   let days = [
     "Sunday",
     "Monday",
@@ -27,7 +31,8 @@ function formatDate(timestamp) {
     "Friday",
     "Saturday",
   ];
-  let day = days[date.getDay()];
+  let day = days[dayIndex];
+
   if (hours >= 12) {
     return `${day} ${hours}:${minutes} pm`;
   } else {
@@ -61,11 +66,11 @@ function showTemperature(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+  getForecast(response.data.coord);
 }
 function searchCity(city) {
   let apiKey = "5e910c08188e49716f20c4b9bf7bd81f";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-  console.log(apiUrl);
   axios.get(apiUrl).then(showTemperature);
 }
 function handleSubmit(event) {
@@ -110,7 +115,7 @@ function displayForecast(response) {
                   forecastDay.weather[0].icon
                 }@2x.png"
                 alt=""
-                width="42"
+                width="44"
               />
               <div class="five-high">
                 High ${Math.round(forecastDay.temp.max)}°
