@@ -5,22 +5,22 @@ h3 {
 }
 label {
   font-size: 12px;
-  position: relative;
   left: 5px;
+  position: relative;
 }
 input {
   font-size: 14px;
 }
 
 h1 {
-  font-size: 38px;
   color: #205279;
+  font-size: 38px;
   font-weight: 600;
 }
 h2 {
+  color: rgba(0, 0, 0, 0.692);
   font-size: 31px;
   font-weight: 300;
-  color: rgba(0, 0, 0, 0.692);
 }
 h3 {
   font-size: 18px;
@@ -37,85 +37,84 @@ h5 {
   font-size: 11px;
 }
 .location-btn {
-  border: 1px solid rgba(0, 0, 0, 0.534);
-  font-size: 12px;
   background-color: rgba(255, 255, 255, 0);
+  border: 1px solid rgba(0, 0, 0, 0.534);
   border-radius: 5px;
-  padding: 6px 7px;
   display: inline-block;
+  font-size: 12px;
   margin-left: 310px;
+  padding: 6px 7px;
 }
 .location-btn:hover {
   border: 1px solid rgba(255, 255, 255, 0);
 }
 .card-body {
-  border: 3px solid #52b8f3d2;
-  border-radius: 15px;
-  width: 700px;
   background: radial-gradient(
     circle at 10% 20%,
     rgb(253, 239, 132) 0%,
     rgb(247, 198, 169) 54.2%,
     rgb(21, 186, 196) 100.3%
   );
+  border: 3px solid #52b8f3d2;
+  border-radius: 15px;
   font-family: "Raleway", sans-serif;
-}
-.cDegree {
-  text-decoration: none;
-  font-size: 15px;
-  font-weight: 900;
-  color: rgba(0, 0, 0, 0.692);
-  position: relative;
-  top: -10px;
-}
-.card-city {
-  border: 3px solid #205279c2;
-  background-color: #dde8f6a8;
-  width: 550px;
-  display: block;
-  margin: 0 auto;
-}
-.icon {
-  width: 125px;
-}
-.card-range {
-  background-color: #dff0f2be;
-  border: 3px solid #81cfcaad;
-  text-align: center;
-  margin: 20px 20px;
-  padding: 50px 20px 10px 85px;
-  width: 650px;
+  width: 700px;
 }
 .current-day {
   font-size: 12px;
   padding: 5px 0 0 5px;
 }
+.cDegree {
+  color: rgba(0, 0, 0, 0.692);
+  font-size: 15px;
+  font-weight: 900;
+  text-decoration: none;
+  top: -10px;
+  position: relative;
+}
 .description {
-  font-size: 14px;
   color: #205279c7;
+  font-size: 14px;
+}
+.card-city {
+  background-color: #dde8f6a8;
+  border: 3px solid #205279c2;
+  display: block;
+  margin: 0 auto;
+  width: 550px;
+}
+.icon {
+  width: 125px;
+}
+.low-city {
+  text-align: center;
+  margin: 20px 20px 20px 20px;
+  padding: 10px 0 30px 0;
+}
+.percipitation {
+  font-size: 10px;
+}
+.card-range {
+  background-color: #dff0f2be;
+  border: 3px solid #81cfcaad;
+  margin: 20px 20px;
+  padding: 50px 20px 10px 85px;
+  text-align: center;
+  width: 650px;
 }
 .five-high,
 .five-low {
   font-size: 14px;
 }
-.low-city {
-  text-align: center;
-  padding: 10px 0 30px 0;
-  margin: 20px 20px 20px 20px;
-}
-.percipitation {
-  font-size: 10px;
-}
 .five-day {
+  left: 28px;
   position: relative;
   top: 20px;
-  left: 28px;
 }
-
 .app-creator {
+  font-size: 15px;
+  font-family: "Courier New", Courier, monospace;
   margin-left: 70px;
   padding-left: 300px;
   text-align: start;
-  font-size: 15px;
-  font-family: "Courier New", Courier, monospace;
 }
